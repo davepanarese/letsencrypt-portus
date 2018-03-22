@@ -1,30 +1,33 @@
 
-# Letsencrypt Portus
+# Letsencrypt Portus Docker Registry
 
-Deploy portus with auto-generated ssl certificate with letsencrypt.  
+Deploy Portus docker registry with auto-generated ssl certificate with letsencrypt.  
 Using the idea of thpham/portus-registry-tls-compose.
 
-# Usage
 
-edit each .env variable before deploy
+# How to deploy
 
-PORTUS_FQDN and REGISTRY_FQDN must be reachable domain from internet to work
-
-deploy
+- Edit .env variables
+- NOTE: PORTUS_FQDN and REGISTRY_FQDN must be reachable domain from internet to work
+- Deploy
 
 ```
 docker-compose up -d
 ```
 
-After the deploy go to portus.example.com:
-- create a user
-- edit _Name_ with `reigstry`
-- edit _Hostname_ with `registry:5000`
-- click on show advanced button
-- edit _External Registry Name_ with `registry.example.com`
 
-# LDAP Integration
+# Configure
 
+After the deploy access to your PORTUS_FQDN address:
+- Set an Administrator user
+- Set _Name_ with `registry.example.com`
+- Set _Hostname_ with `registry:5000`
+- Go to advanced option
+- Set _External Registry Name_ with `registry.example.com`
+
+
+# LDAP Integration (Optional)
+The system can be authenticated with your LDAP server (local authentication will be disabled)
 Adding this parameters into docker-compose.yml
 
 ```
